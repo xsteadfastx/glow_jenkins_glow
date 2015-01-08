@@ -1,0 +1,7 @@
+PiGlow==0.5
+argparse==1.2.1
+bottle==0.12.8
+jenkinsapi==0.2.25
+pytz==2014.10
+requests==2.5.1
+wsgiref==0.1.2
