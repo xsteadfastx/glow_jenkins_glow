@@ -163,13 +163,16 @@ class GlowJenkinsGlow(Bottle):
         '''Requests Jenkins state every 10 seconds.
         '''
         while True:
-            if self.if_building():
-                self.state = 'building'
-            else:
-                if self.overall_success():
-                    self.state = 'success'
+            try:
+                if self.if_building():
+                    self.state = 'building'
                 else:
-                    self.state = 'fail'
+                    if self.overall_success():
+                        self.state = 'success'
+                    else:
+                        self.state = 'fail'
+            except:
+                self.state = 'updating'
 
             sleep(10)
 
